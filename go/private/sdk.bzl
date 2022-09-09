@@ -267,6 +267,8 @@ def _detect_host_platform(ctx):
     goarch = ctx.os.arch
     if goarch == "aarch64":
         goarch = "arm64"
+    elif goarch == "x86_64":
+        goarch = "amd64"
 
     return goos, goarch
 
