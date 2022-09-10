@@ -294,7 +294,7 @@ def _detect_host_sdk(ctx):
         return ctx.os.environ["GOROOT"]
     res = ctx.execute([executable_path(ctx, "go"), "env", "GOROOT"])
     if res.return_code:
-        fail("Could not detect host go version")
+        fail("Could not detect host go version: {} {}".format(res.stdout, res.stderr))
     root = res.stdout.strip()
     if not root:
         fail("host go version failed to report it's GOROOT")
